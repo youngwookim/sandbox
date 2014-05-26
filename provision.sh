@@ -38,7 +38,7 @@ tar xvfz apache-forrest-0.9.tar.gz
 echo "export JAVA_HOME=/usr/java/default" >> /etc/profile.d/java.sh
 echo "export ANT_HOME=/home/vagrant/apache-ant-1.9.4" >> /home/vagrant/.bashrc
 echo "export MAVEN_HOME=/home/vagrant/apache-maven-3.2.1" >> /home/vagrant/.bashrc
-echo "export FORREST_HOME=/home/vagrnat/apache-forrest-0.9" >> /home/vagrant/.bashrc
+echo "export FORREST_HOME=/home/vagrant/apache-forrest-0.9" >> /home/vagrant/.bashrc
 
 # ProtocolBuffers 2.5
 wget http://download.opensuse.org/repositories/home:/mrdocs:/protobuf-rpm/CentOS_CentOS-6/home:mrdocs:protobuf-rpm.repo -O /etc/yum.repos.d/protobuf.repo
