@@ -9,9 +9,6 @@ rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6
 yum install -y --enablerepo=rpmforge-extras git
 yum install -y snappy snappy-devel wget make rpm-build fuse-devel cmake fuse-libs redhat-rpm-config lzo-devel autoconf automake redhat-lsb nc
 
-wget http://apache.mirror.cdnetworks.com//ant/binaries/apache-ant-1.9.4-bin.tar.gz
-wget http://mirror.apache-kr.org/maven/maven-3/3.2.1/binaries/apache-maven-3.2.1-bin.tar.gz
-
 # JDK7
 wget --no-cookies \
 --no-check-certificate \
@@ -30,12 +27,18 @@ alternatives --set javaws /usr/java/jdk1.7.0_51/jre/bin/javaws
 alternatives --set javac /usr/java/jdk1.7.0_51/bin/javac
 alternatives --set jar /usr/java/jdk1.7.0_51/bin/jar
 
+wget http://apache.mirror.cdnetworks.com//ant/binaries/apache-ant-1.9.4-bin.tar.gz
+wget http://mirror.apache-kr.org/maven/maven-3/3.2.1/binaries/apache-maven-3.2.1-bin.tar.gz
+wget http://archive.apache.org/dist/forrest/0.9/apache-forrest-0.9.tar.gz
+
 # Ant & Maven
 tar xvfz apache-ant-1.9.4-bin.tar.gz
 tar xvfz apache-maven-3.2.1-bin.tar.gz
+tar xvfz apache-forrest-0.9.tar.gz
 echo "export JAVA_HOME=/usr/java/default" >> /etc/profile.d/java.sh
 echo "export ANT_HOME=/home/vagrant/apache-ant-1.9.4" >> /home/vagrant/.bashrc
 echo "export MAVEN_HOME=/home/vagrant/apache-maven-3.2.1" >> /home/vagrant/.bashrc
+echo "export FORREST_HOME=/home/vagrnat/apache-forrest-0.9" >> /home/vagrant/.bashrc
 
 # ProtocolBuffers 2.5
 wget http://download.opensuse.org/repositories/home:/mrdocs:/protobuf-rpm/CentOS_CentOS-6/home:mrdocs:protobuf-rpm.repo -O /etc/yum.repos.d/protobuf.repo
