@@ -9,23 +9,37 @@ rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6
 yum install -y --enablerepo=rpmforge-extras git
 yum install -y snappy snappy-devel wget make rpm-build fuse-devel cmake fuse-libs redhat-rpm-config lzo-devel autoconf automake redhat-lsb nc createrepo asciidoc
 
+# JDK6
+wget http://14.63.227.245/jdk-6u45-linux-x64-rpm.bin -O /tmp/jdk-6u45-linux-x64-rpm.bin
+chmod +x /tmp/jdk-6u45-linux-x64-rpm.bin
+/tmp/jdk-6u45-linux-x64-rpm.bin
+
+alternatives --install /usr/bin/java java /usr/java/jdk1.6.0_45/jre/bin/java 20000
+alternatives --install /usr/bin/jar jar /usr/java/jdk1.6.0_45/bin/jar 20000
+alternatives --install /usr/bin/javac javac /usr/java/jdk1.6.0_45/bin/javac 20000
+alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.6.0_45/jre/bin/javaws 20000
+alternatives --set java /usr/java/jdk1.6.0_45/jre/bin/java
+alternatives --set javaws /usr/java/jdk1.6.0_45/jre/bin/javaws
+alternatives --set javac /usr/java/jdk1.6.0_45/bin/javac
+alternatives --set jar /usr/java/jdk1.6.0_45/bin/jar
+
 # JDK7
-wget --no-cookies \
---no-check-certificate \
---header "Cookie: oraclelicense=accept-securebackup-cookie" \
-"http://download.oracle.com/otn-pub/java/jdk/7u60-b19/jdk-7u60-linux-x64.rpm" \
--O /tmp/jdk-7-linux-x64.rpm
+#wget --no-cookies \
+#--no-check-certificate \
+#--header "Cookie: oraclelicense=accept-securebackup-cookie" \
+#"http://download.oracle.com/otn-pub/java/jdk/7u60-b19/jdk-7u60-linux-x64.rpm" \
+#-O /tmp/jdk-7-linux-x64.rpm
 
-rpm -Uvh /tmp/jdk-7-linux-x64.rpm
+#rpm -Uvh /tmp/jdk-7-linux-x64.rpm
 
-alternatives --install /usr/bin/java java /usr/java/jdk1.7.0_60/jre/bin/java 20000
-alternatives --install /usr/bin/jar jar /usr/java/jdk1.7.0_60/bin/jar 20000
-alternatives --install /usr/bin/javac javac /usr/java/jdk1.7.0_60/bin/javac 20000
-alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.7.0_60/jre/bin/javaws 20000
-alternatives --set java /usr/java/jdk1.7.0_60/jre/bin/java
-alternatives --set javaws /usr/java/jdk1.7.0_60/jre/bin/javaws
-alternatives --set javac /usr/java/jdk1.7.0_60/bin/javac
-alternatives --set jar /usr/java/jdk1.7.0_60/bin/jar
+#alternatives --install /usr/bin/java java /usr/java/jdk1.7.0_60/jre/bin/java 20000
+#alternatives --install /usr/bin/jar jar /usr/java/jdk1.7.0_60/bin/jar 20000
+#alternatives --install /usr/bin/javac javac /usr/java/jdk1.7.0_60/bin/javac 20000
+#alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.7.0_60/jre/bin/javaws 20000
+#alternatives --set java /usr/java/jdk1.7.0_60/jre/bin/java
+#alternatives --set javaws /usr/java/jdk1.7.0_60/jre/bin/javaws
+#alternatives --set javac /usr/java/jdk1.7.0_60/bin/javac
+#alternatives --set jar /usr/java/jdk1.7.0_60/bin/jar
 
 wget http://apache.mirror.cdnetworks.com//ant/binaries/apache-ant-1.9.4-bin.tar.gz
 wget http://mirror.apache-kr.org/maven/maven-3/3.2.1/binaries/apache-maven-3.2.1-bin.tar.gz
