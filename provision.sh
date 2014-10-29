@@ -6,40 +6,44 @@ rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.r
 # RepoForge(rpmforge)
 rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 
+yum update -y
+
+# Git
 yum install -y --enablerepo=rpmforge-extras git
-yum install -y snappy snappy-devel wget make rpm-build fuse-devel cmake fuse-libs redhat-rpm-config lzo-devel autoconf automake redhat-lsb nc createrepo asciidoc
+
+yum install -y snappy snappy-devel wget make rpm-build fuse-devel cmake fuse-libs redhat-rpm-config lzo-devel autoconf automake redhat-lsb nc createrepo asciidoc python-devel libxml2-devel libxslt-devel cyrus-sasl-devel openldap-devel mysql-devel xmlto nodejs
 
 # JDK6
-wget http://14.63.227.245/jdk-6u45-linux-x64-rpm.bin -O /tmp/jdk-6u45-linux-x64-rpm.bin
-chmod +x /tmp/jdk-6u45-linux-x64-rpm.bin
-/tmp/jdk-6u45-linux-x64-rpm.bin
+#wget http://14.63.227.245/jdk-6u45-linux-x64-rpm.bin -O /tmp/jdk-6u45-linux-x64-rpm.bin
+#chmod +x /tmp/jdk-6u45-linux-x64-rpm.bin
+#/tmp/jdk-6u45-linux-x64-rpm.bin
 
-alternatives --install /usr/bin/java java /usr/java/jdk1.6.0_45/jre/bin/java 20000
-alternatives --install /usr/bin/jar jar /usr/java/jdk1.6.0_45/bin/jar 20000
-alternatives --install /usr/bin/javac javac /usr/java/jdk1.6.0_45/bin/javac 20000
-alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.6.0_45/jre/bin/javaws 20000
-alternatives --set java /usr/java/jdk1.6.0_45/jre/bin/java
-alternatives --set javaws /usr/java/jdk1.6.0_45/jre/bin/javaws
-alternatives --set javac /usr/java/jdk1.6.0_45/bin/javac
-alternatives --set jar /usr/java/jdk1.6.0_45/bin/jar
+#alternatives --install /usr/bin/java java /usr/java/jdk1.6.0_45/jre/bin/java 20000
+#alternatives --install /usr/bin/jar jar /usr/java/jdk1.6.0_45/bin/jar 20000
+#alternatives --install /usr/bin/javac javac /usr/java/jdk1.6.0_45/bin/javac 20000
+#alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.6.0_45/jre/bin/javaws 20000
+#alternatives --set java /usr/java/jdk1.6.0_45/jre/bin/java
+#alternatives --set javaws /usr/java/jdk1.6.0_45/jre/bin/javaws
+#alternatives --set javac /usr/java/jdk1.6.0_45/bin/javac
+#alternatives --set jar /usr/java/jdk1.6.0_45/bin/jar
 
 # JDK7
-#wget --no-cookies \
-#--no-check-certificate \
-#--header "Cookie: oraclelicense=accept-securebackup-cookie" \
-#"http://download.oracle.com/otn-pub/java/jdk/7u60-b19/jdk-7u60-linux-x64.rpm" \
-#-O /tmp/jdk-7-linux-x64.rpm
+wget --no-cookies \
+--no-check-certificate \
+--header "Cookie: oraclelicense=accept-securebackup-cookie" \
+"http://download.oracle.com/otn-pub/java/jdk/7u60-b19/jdk-7u60-linux-x64.rpm" \
+-O /tmp/jdk-7-linux-x64.rpm
 
-#rpm -Uvh /tmp/jdk-7-linux-x64.rpm
+rpm -Uvh /tmp/jdk-7-linux-x64.rpm
 
-#alternatives --install /usr/bin/java java /usr/java/jdk1.7.0_60/jre/bin/java 20000
-#alternatives --install /usr/bin/jar jar /usr/java/jdk1.7.0_60/bin/jar 20000
-#alternatives --install /usr/bin/javac javac /usr/java/jdk1.7.0_60/bin/javac 20000
-#alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.7.0_60/jre/bin/javaws 20000
-#alternatives --set java /usr/java/jdk1.7.0_60/jre/bin/java
-#alternatives --set javaws /usr/java/jdk1.7.0_60/jre/bin/javaws
-#alternatives --set javac /usr/java/jdk1.7.0_60/bin/javac
-#alternatives --set jar /usr/java/jdk1.7.0_60/bin/jar
+alternatives --install /usr/bin/java java /usr/java/jdk1.7.0_60/jre/bin/java 20000
+alternatives --install /usr/bin/jar jar /usr/java/jdk1.7.0_60/bin/jar 20000
+alternatives --install /usr/bin/javac javac /usr/java/jdk1.7.0_60/bin/javac 20000
+alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.7.0_60/jre/bin/javaws 20000
+alternatives --set java /usr/java/jdk1.7.0_60/jre/bin/java
+alternatives --set javaws /usr/java/jdk1.7.0_60/jre/bin/javaws
+alternatives --set javac /usr/java/jdk1.7.0_60/bin/javac
+alternatives --set jar /usr/java/jdk1.7.0_60/bin/jar
 
 wget http://apache.mirror.cdnetworks.com//ant/binaries/apache-ant-1.9.4-bin.tar.gz
 wget http://mirror.apache-kr.org/maven/maven-3/3.2.1/binaries/apache-maven-3.2.1-bin.tar.gz
@@ -59,9 +63,9 @@ wget http://download.opensuse.org/repositories/home:/mrdocs:/protobuf-rpm/CentOS
 yum install -y protobuf-devel
 
 # Gradle
-wget https://services.gradle.org/distributions/gradle-1.12-bin.zip
-unzip gradle-1.12-bin.zip
-echo "export GRADLE_HOME=/home/vagrant/gradle-1.12" >> /home/vagrant/.bashrc
+wget https://services.gradle.org/distributions/gradle-2.0-bin.zip
+unzip gradle-2.0-bin.zip
+echo "export GRADLE_HOME=/home/vagrant/gradle-2.0" >> /home/vagrant/.bashrc
 
 # PATH
 echo "export PATH=\$JAVA_HOME/bin:\$ANT_HOME/bin:\$MAVEN_HOME/bin:\$GRADLE_HOME/bin:\$PATH" >> /home/vagrant/.bashrc
