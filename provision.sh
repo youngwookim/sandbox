@@ -11,7 +11,9 @@ yum update -y
 # Git
 yum install -y --enablerepo=rpmforge-extras git
 
-yum install -y snappy snappy-devel wget make rpm-build fuse-devel cmake fuse-libs redhat-rpm-config lzo-devel autoconf automake redhat-lsb nc createrepo asciidoc python-devel libxml2-devel libxslt-devel cyrus-sasl-devel openldap-devel mysql-devel xmlto nodejs
+yum install -y snappy snappy-devel wget make rpm-build fuse-devel cmake fuse-libs redhat-rpm-config lzo-devel autoconf automake redhat-lsb nc createrepo asciidoc python-devel libxml2-devel libxslt-devel cyrus-sasl-devel openldap-devel mysql-devel xmlto nodejs npm
+
+npm install -g brunch@1.7.17
 
 # JDK6
 #wget http://14.63.227.245/jdk-6u45-linux-x64-rpm.bin -O /tmp/jdk-6u45-linux-x64-rpm.bin
