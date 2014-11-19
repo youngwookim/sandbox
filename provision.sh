@@ -52,13 +52,13 @@ wget http://mirror.apache-kr.org/maven/maven-3/3.2.1/binaries/apache-maven-3.2.1
 wget http://archive.apache.org/dist/forrest/0.9/apache-forrest-0.9.tar.gz
 
 # Ant & Maven
-tar xvfz apache-ant-1.9.4-bin.tar.gz
-tar xvfz apache-maven-3.2.1-bin.tar.gz
-tar xvfz apache-forrest-0.9.tar.gz
+tar xvfz apache-ant-1.9.4-bin.tar.gz --directory=/opt/
+tar xvfz apache-maven-3.2.1-bin.tar.gz --directory=/opt/
+tar xvfz apache-forrest-0.9.tar.gz --directory=/opt/
 echo "export JAVA_HOME=/usr/java/default" >> /etc/profile.d/java.sh
-echo "export ANT_HOME=/home/vagrant/apache-ant-1.9.4" >> /home/vagrant/.bashrc
-echo "export MAVEN_HOME=/home/vagrant/apache-maven-3.2.1" >> /home/vagrant/.bashrc
-echo "export FORREST_HOME=/home/vagrant/apache-forrest-0.9" >> /home/vagrant/.bashrc
+echo "export ANT_HOME=/opt/apache-ant-1.9.4" >> /etc/profile.d/ant.sh
+echo "export MAVEN_HOME=/opt/apache-maven-3.2.1" >> /etc/profile.d/maven.sh
+echo "export FORREST_HOME=/opt/apache-forrest-0.9" >> /etc/profile.d/forrest.sh
 
 # ProtocolBuffers 2.5
 wget http://download.opensuse.org/repositories/home:/mrdocs:/protobuf-rpm/CentOS_CentOS-6/home:mrdocs:protobuf-rpm.repo -O /etc/yum.repos.d/protobuf.repo
@@ -66,11 +66,11 @@ yum install -y protobuf-devel
 
 # Gradle
 wget https://services.gradle.org/distributions/gradle-2.0-bin.zip
-unzip gradle-2.0-bin.zip
-echo "export GRADLE_HOME=/home/vagrant/gradle-2.0" >> /home/vagrant/.bashrc
+unzip gradle-2.0-bin.zip -d /opt/
+echo "export GRADLE_HOME=/opt/gradle-2.0" >> /etc/profile.d/gradle.sh
 
 # PATH
-echo "export PATH=\$JAVA_HOME/bin:\$ANT_HOME/bin:\$MAVEN_HOME/bin:\$GRADLE_HOME/bin:\$PATH" >> /home/vagrant/.bashrc
+echo "export PATH=\$JAVA_HOME/bin:\$ANT_HOME/bin:\$MAVEN_HOME/bin:\$GRADLE_HOME/bin:\$PATH" >> /etc/profile
 
 # MySQL
 #service mysqld start
