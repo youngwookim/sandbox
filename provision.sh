@@ -15,25 +15,11 @@ yum install -y snappy snappy-devel wget make rpm-build fuse-devel cmake fuse-lib
 
 npm install -g brunch@1.7.17
 
-# JDK6
-#wget http://14.63.227.245/jdk-6u45-linux-x64-rpm.bin -O /tmp/jdk-6u45-linux-x64-rpm.bin
-#chmod +x /tmp/jdk-6u45-linux-x64-rpm.bin
-#/tmp/jdk-6u45-linux-x64-rpm.bin
-
-#alternatives --install /usr/bin/java java /usr/java/jdk1.6.0_45/jre/bin/java 20000
-#alternatives --install /usr/bin/jar jar /usr/java/jdk1.6.0_45/bin/jar 20000
-#alternatives --install /usr/bin/javac javac /usr/java/jdk1.6.0_45/bin/javac 20000
-#alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.6.0_45/jre/bin/javaws 20000
-#alternatives --set java /usr/java/jdk1.6.0_45/jre/bin/java
-#alternatives --set javaws /usr/java/jdk1.6.0_45/jre/bin/javaws
-#alternatives --set javac /usr/java/jdk1.6.0_45/bin/javac
-#alternatives --set jar /usr/java/jdk1.6.0_45/bin/jar
-
 # JDK7
 wget --no-cookies \
 --no-check-certificate \
 --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-"http://download.oracle.com/otn-pub/java/jdk/7u60-b19/jdk-7u60-linux-x64.rpm" \
+"http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.rpm" \
 -O /tmp/jdk-7-linux-x64.rpm
 
 rpm -Uvh /tmp/jdk-7-linux-x64.rpm
