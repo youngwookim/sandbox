@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network :private_network, ip: "192.168.33.10"
-  config.vm.network :private_network, ip: "10.10.10.11"
+  config.vm.network :private_network, ip: "10.10.10.10"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -46,12 +46,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider :virtualbox do |vb|
-     vb.name = "Sandbox"
+     vb.name = "sandbox-centos6.5-hadoop2"
   #   # Don't boot with headless mode
      vb.gui = false
   #
   #   # Use VBoxManage to customize the VM. For example to change memory:
-     vb.customize ["modifyvm", :id, "--memory", "3000"]
+     vb.customize ["modifyvm", :id, "--memory", "4096"]
   end
   #
   # View the documentation for the provider you're using for more
