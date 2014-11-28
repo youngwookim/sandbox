@@ -1,3 +1,12 @@
+echo "10.10.10.11 sandbox.example.com sandbox" >> /etc/hosts
+
+cat > /etc/sysconfig/network <<EOF1
+NETWORKING=yes
+HOSTNAME=sandbox.example.com
+EOF1
+
+hostname sandbox.example.com
+
 echo "vm.swappiness = 0" >> /etc/sysctl.conf
 
 # EPEL
