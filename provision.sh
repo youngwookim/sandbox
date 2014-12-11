@@ -1,4 +1,4 @@
-echo "10.10.10.11 sandbox.example.com sandbox" >> /etc/hosts
+echo "10.10.10.10 sandbox.example.com sandbox" >> /etc/hosts
 
 cat > /etc/sysconfig/network <<EOF1
 NETWORKING=yes
@@ -9,13 +9,18 @@ hostname sandbox.example.com
 
 echo "vm.swappiness = 0" >> /etc/sysctl.conf
 
+# Disable SELINUX
+sed -i -e 's@SELINUX=enforcing@SELINUX=disabled@' /etc/selinux/config
+
+# Disable iptables
+/sbin/chkconfig --level 2345 iptables off
+/sbin/chkconfig --level 2345 ip6tables off
+
 # EPEL
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 
 # RepoForge(rpmforge)
 rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
-
-yum update -y
 
 # Git
 yum install -y --enablerepo=rpmforge-extras git
@@ -66,16 +71,6 @@ echo "export GRADLE_HOME=/opt/gradle-2.0" >> /etc/profile.d/gradle.sh
 
 # PATH
 echo "export PATH=\$JAVA_HOME/bin:\$ANT_HOME/bin:\$MAVEN_HOME/bin:\$GRADLE_HOME/bin:\$PATH" >> /etc/profile
-
-# MySQL
-#service mysqld start
-#mysqladmin -u root password 'mypassword'
-#mysql -uroot -pmypassword -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'mypassword';"
-#mysql -uroot -pmypassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;"
-#mysql -uroot -pmypassword -e "CREATE USER 'root'@'%' IDENTIFIED BY 'mypassword';"
-#mysql -uroot -pmypassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
-
-#mysql -uroot -pmypassword -e "CREATE DATABASE hive DEFAULT CHARACTER SET latin1;"
 
 # Cleanup
 yum -y clean all
