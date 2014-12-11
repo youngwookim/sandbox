@@ -9,6 +9,8 @@ wget http://public-repo-1.hortonworks.com/ambari/centos6/1.x/updates/1.7.0/ambar
 
 ```
 ```
+# yum install ambari-server
+
 # ambari-server setup
 
 # ambari-server start
