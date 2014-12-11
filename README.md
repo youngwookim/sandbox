@@ -12,11 +12,17 @@ wget http://public-repo-1.hortonworks.com/ambari/centos6/1.x/updates/1.7.0/ambar
 # yum install ambari-server
 
 # ambari-server setup
+```
 
+'Preparing to Install a HDP Cluster', http://docs.hortonworks.com/HDPDocuments/Ambari-1.7.0.0/Ambari_Install_v170/index.html#Item1.1
+
+
+```
 # ambari-server start
 
 ```
 Open up a web browser and go to http://10.10.10.10:8080.
+
 Log in with username admin and password admin and follow on-screen instructions.
 
 
