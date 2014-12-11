@@ -2,6 +2,22 @@
 
 My Sandbox (CentOS 6.5 x86_64)
 
+Ambari:
+```
+cd /etc/yum.repos.d/
+wget http://public-repo-1.hortonworks.com/ambari/centos6/1.x/updates/1.7.0/ambari.repo
+
+```
+```
+# ambari-server setup
+
+# ambari-server start
+
+```
+Open up a web browser and go to http://10.10.10.10:8080.
+Log in with username admin and password admin and follow on-screen instructions.
+
+
 
 Bigtop:
 ```
