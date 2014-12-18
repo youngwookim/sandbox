@@ -35,6 +35,16 @@ Bigtop:
 
 ```
 
+Bigtop 0.8 repo (centos6), http://apache.tt.co.kr/bigtop/bigtop-0.8.0/repos/centos6/bigtop.repo
+```
+# cd /etc/yum.repos.d/
+# wget http://apache.tt.co.kr/bigtop/bigtop-0.8.0/repos/centos6/bigtop.repo
+
+```
+
+Bigtop trunk repo, http://14.63.216.163/repo/bigtop/trunk/redhat/6/x86_64/
+
+MySQL:
 ```
 # MySQL
 mv /etc/my.cnf /etc/my.cnf.ORG
@@ -50,7 +60,10 @@ mysql -uroot -pmypassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' 
 mysql -uroot -pmypassword -e "CREATE USER 'root'@'%' IDENTIFIED BY 'mypassword';"
 mysql -uroot -pmypassword -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
 mysql -uroot -pmypassword -e "CREATE DATABASE hive DEFAULT CHARACTER SET latin1;"
+```
 
+Hadoop:
+```
 # Confs
 cp /vagrant/confs/hadoop/* /etc/hadoop/conf/
 
