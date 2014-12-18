@@ -43,6 +43,15 @@ Bigtop 0.8 repo (centos6), http://apache.tt.co.kr/bigtop/bigtop-0.8.0/repos/cent
 ```
 
 Bigtop trunk repo, http://14.63.216.163/repo/bigtop/trunk/redhat/6/x86_64/
+```
+# vi /etc/yum.repos.d/bigtop.repo
+[Bigtop]
+name=Bigtop
+baseurl=http://14.63.216.163/repo/bigtop/trunk/redhat/6/x86_64/
+enabled=1
+gpgcheck=0
+
+```
 
 MySQL:
 ```
