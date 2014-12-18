@@ -69,8 +69,13 @@ wget https://services.gradle.org/distributions/gradle-2.0-bin.zip
 unzip gradle-2.0-bin.zip -d /opt/
 echo "export GRADLE_HOME=/opt/gradle-2.0" >> /etc/profile.d/gradle.sh
 
+# Scala
+wget http://downloads.typesafe.com/scala/2.11.4/scala-2.11.4.tgz
+tar xvfz scala-2.11.4.tgz --directory=/opt/
+echo "export SCALA_HOME=/opt/scala-2.11.4" >> /etc/profile.d/scala.sh
+
 # PATH
-echo "export PATH=\$JAVA_HOME/bin:\$ANT_HOME/bin:\$MAVEN_HOME/bin:\$GRADLE_HOME/bin:\$PATH" >> /etc/profile
+echo "export PATH=\$JAVA_HOME/bin:\$ANT_HOME/bin:\$MAVEN_HOME/bin:\$GRADLE_HOME/bin:\$SCALA_HOME/bin:\$PATH" >> /etc/profile
 
 # Cleanup
 yum -y clean all
