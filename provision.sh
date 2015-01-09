@@ -48,16 +48,16 @@ alternatives --set javac /usr/java/jdk1.7.0_60/bin/javac
 alternatives --set jar /usr/java/jdk1.7.0_60/bin/jar
 
 wget http://apache.mirror.cdnetworks.com//ant/binaries/apache-ant-1.9.4-bin.tar.gz
-wget http://mirror.apache-kr.org/maven/maven-3/3.2.1/binaries/apache-maven-3.2.1-bin.tar.gz
+wget http://mirror.apache-kr.org/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz 
 wget http://archive.apache.org/dist/forrest/0.9/apache-forrest-0.9.tar.gz
 
 # Ant & Maven
 tar xvfz apache-ant-1.9.4-bin.tar.gz --directory=/opt/
-tar xvfz apache-maven-3.2.1-bin.tar.gz --directory=/opt/
+tar xvfz apache-maven-3.2.5-bin.tar.gz --directory=/opt/
 tar xvfz apache-forrest-0.9.tar.gz --directory=/opt/
 echo "export JAVA_HOME=/usr/java/default" >> /etc/profile.d/java.sh
 echo "export ANT_HOME=/opt/apache-ant-1.9.4" >> /etc/profile.d/ant.sh
-echo "export MAVEN_HOME=/opt/apache-maven-3.2.1" >> /etc/profile.d/maven.sh
+echo "export MAVEN_HOME=/opt/apache-maven-3.2.5" >> /etc/profile.d/maven.sh
 echo "export FORREST_HOME=/opt/apache-forrest-0.9" >> /etc/profile.d/forrest.sh
 
 # ProtocolBuffers 2.5
@@ -78,5 +78,6 @@ echo "export SCALA_HOME=/opt/scala-2.11.4" >> /etc/profile.d/scala.sh
 echo "export PATH=\$JAVA_HOME/bin:\$ANT_HOME/bin:\$MAVEN_HOME/bin:\$GRADLE_HOME/bin:\$SCALA_HOME/bin:\$PATH" >> /etc/profile
 
 # Cleanup
+yum -y update
 yum -y clean all
 
