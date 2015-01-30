@@ -2,6 +2,12 @@
 
 My Sandbox (CentOS 6.5 x86_64)
 
+## Prerequisites
+```
+vagrant plugin install vagrant-hostmanager
+
+```
+
 Ambari:
 ```
 cd /etc/yum.repos.d/
