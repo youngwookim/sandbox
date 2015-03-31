@@ -1,55 +1,12 @@
-echo "vm.swappiness = 1" >> /etc/sysctl.conf
-
 # Disable SELINUX
+# TODO: Ansible
 sed -i -e 's@SELINUX=enforcing@SELINUX=disabled@' /etc/selinux/config
 
-# Disable iptables
-/sbin/chkconfig --level 2345 iptables off
-/sbin/chkconfig --level 2345 ip6tables off
+yum -y install git puppet
+yum -y update vim-minimal
 
-# EPEL
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+git clone https://github.com/apache/bigtop.git
 
-# RepoForge(rpmforge)
-rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+cd bigtop/bigtop_toolchain
 
-# Git
-yum install -y --enablerepo=rpmforge-extras git
-
-yum install -y java-1.7.0-openjdk-devel snappy snappy-devel wget make rpm-build fuse-devel cmake fuse-libs redhat-rpm-config lzo-devel autoconf automake redhat-lsb nc createrepo asciidoc python-devel libxml2-devel libxslt-devel cyrus-sasl-devel openldap-devel mysql-devel xmlto nodejs npm
-
-npm install -g brunch@1.7.17
-
-wget http://apache.mirror.cdnetworks.com//ant/binaries/apache-ant-1.9.4-bin.tar.gz
-wget http://mirror.apache-kr.org/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz 
-wget http://archive.apache.org/dist/forrest/0.9/apache-forrest-0.9.tar.gz
-
-# Ant & Maven
-tar xvfz apache-ant-1.9.4-bin.tar.gz --directory=/opt/
-tar xvfz apache-maven-3.2.5-bin.tar.gz --directory=/opt/
-tar xvfz apache-forrest-0.9.tar.gz --directory=/opt/
-echo "export JAVA_HOME=/usr/lib/jvm/java-openjdk" >> /etc/profile.d/sandbox.sh
-echo "export ANT_HOME=/opt/apache-ant-1.9.4" >> /etc/profile.d/sandbox.sh
-echo "export MAVEN_HOME=/opt/apache-maven-3.2.5" >> /etc/profile.d/sandbox.sh
-echo "export FORREST_HOME=/opt/apache-forrest-0.9" >> /etc/profile.d/sandbox.sh
-
-# ProtocolBuffers 2.5
-wget http://download.opensuse.org/repositories/home:/mrdocs:/protobuf-rpm/CentOS_CentOS-6/home:mrdocs:protobuf-rpm.repo -O /etc/yum.repos.d/protobuf.repo
-yum install -y protobuf-devel
-
-# Gradle
-wget https://services.gradle.org/distributions/gradle-2.0-bin.zip
-unzip gradle-2.0-bin.zip -d /opt/
-echo "export GRADLE_HOME=/opt/gradle-2.0" >> /etc/profile.d/sandbox.sh
-
-# Scala
-yum install- y http://www.scala-lang.org/files/archive/scala-2.10.3.rpm
-echo "export SCALA_HOME=/usr/share/java" >> /etc/profile.d/sandbox.sh
-
-# PATH
-echo "export PATH=\$JAVA_HOME/bin:\$ANT_HOME/bin:\$MAVEN_HOME/bin:\$GRADLE_HOME/bin:\$SCALA_HOME/bin:\$PATH" >> /etc/profile/sandbox.sh
-
-# Cleanup
-yum -y update
-yum -y clean all
-
+puppet apply --debug --modulepath=/home/vagrant/bigtop -e "include bigtop_toolchain::installer"

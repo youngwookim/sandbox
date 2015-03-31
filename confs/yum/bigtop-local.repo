@@ -1,5 +1,0 @@
-[bigtop-local]
-name=bigtop-local
-enabled=1
-gpgcheck=0
-baseurl=file:///yum/
