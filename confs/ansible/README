@@ -1,7 +1,0 @@
-Ansible: Dump all variables, https://coderwall.com/p/13lh6w
-
-```
-# ansible-playbook dump.yml -v -k
-
-```
-
