@@ -9,7 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.hostmanager.enabled = true
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "chef/centos-6.6"
+  # Ubuntu 14.04
+  config.vm.box = "ubuntu/trusty64"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -41,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider :virtualbox do |vb|
-     vb.name = "sandbox-centos6.6"
+     vb.name = "sandbox-ubuntu-14.04"
   #   # Don't boot with headless mode
      vb.gui = false
   #

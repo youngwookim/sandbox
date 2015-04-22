@@ -1,19 +1,9 @@
-# Disable SELINUX
-sed -i -e 's@SELINUX=enforcing@SELINUX=disabled@' /etc/selinux/config
+wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
+sudo dpkg -i puppetlabs-release-trusty.deb
+sudo apt-get update
 
-# EPEL
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-
-# Puppetlabs
-sudo rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
-
-# RepoForge(rpmforge)
-rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
-
-# Git
-yum install -y --enablerepo=rpmforge-extras git
-
-yum -y install puppet
+apt-get -y install git 
+apt-get -y install puppet
 
 git clone https://github.com/apache/bigtop.git
 cd bigtop/bigtop_toolchain
