@@ -16,6 +16,7 @@ yum install -y --enablerepo=rpmforge-extras git
 yum -y install puppet
 
 git clone https://github.com/apache/bigtop.git
-cd bigtop/bigtop_toolchain
-puppet apply --debug --modulepath=/home/vagrant/bigtop -e "include bigtop_toolchain::installer"
+cd bigtop
+./gradlew toolchain
+
 chown vagrant:vagrant -R /home/vagrant/bigtop                                                                                                          
