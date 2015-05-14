@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network :private_network, ip: "192.168.33.10"
   config.vm.network :private_network, ip: "10.10.10.10"
 
-  config.vm.hostname = host1.sandbox.com
+  config.vm.hostname = "host1.sandbox.com"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on

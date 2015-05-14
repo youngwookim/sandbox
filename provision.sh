@@ -15,8 +15,8 @@ yum install -y --enablerepo=rpmforge-extras git
 
 yum -y install puppet java-1.7.0-openjdk-devel
 
-git clone https://github.com/apache/bigtop.git
-cd bigtop
-./gradlew toolchain
+#git clone https://github.com/apache/bigtop.git
+#cd bigtop
+#./gradlew toolchain
 
-chown vagrant:vagrant -R /home/vagrant/bigtop                                                                                                          
+#chown vagrant:vagrant -R /home/vagrant/bigtop                                                                                                          
