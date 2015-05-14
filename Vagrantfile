@@ -21,6 +21,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network :private_network, ip: "192.168.33.10"
   config.vm.network :private_network, ip: "10.10.10.10"
 
+  config.vm.hostname = host1.sandbox.com
+
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
@@ -46,7 +48,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      vb.gui = false
   #
   #   # Use VBoxManage to customize the VM. For example to change memory:
-     vb.customize ["modifyvm", :id, "--memory", "4096"]
+     vb.customize ["modifyvm", :id, "--memory", "8000"]
      vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
   #
