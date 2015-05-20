@@ -13,7 +13,7 @@ rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6
 # Git
 yum install -y --enablerepo=rpmforge-extras git
 
-yum -y install puppet java-1.7.0-openjdk-devel
+yum -y install puppet unzip java-1.7.0-openjdk-devel
 
 #git clone https://github.com/apache/bigtop.git
 #cd bigtop
