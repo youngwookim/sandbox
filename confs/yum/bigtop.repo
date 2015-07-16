@@ -1,0 +1,6 @@
+[sdf]
+name=sdf
+baseurl=http://14.63.216.163/repo/bigtop/redhat/6/x86_64/
+enabled=1
+gpgcheck=0
+

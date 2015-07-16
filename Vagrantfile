@@ -43,7 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider :virtualbox do |vb|
-     vb.name = "sandbox-centos6.6"
+     vb.name = "sandbox-centos6.6-bigtop"
   #   # Don't boot with headless mode
      vb.gui = false
   #
