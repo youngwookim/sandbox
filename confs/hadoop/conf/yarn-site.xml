@@ -23,7 +23,7 @@
    </property>
    <property>
       <name>yarn.resourcemanager.scheduler.address</name>
-      <value>sandbox.example.com:8030</value>
+      <value>host1.sandbox.com:8030</value>
       <description>Enter your ResourceManager hostname.</description>
    </property>
    <property>

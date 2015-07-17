@@ -28,7 +28,7 @@
 <!-- Hive Execution Parameters -->
   <property>
     <name>javax.jdo.option.ConnectionURL</name>
-    <value>jdbc:postgresql://sandbox.example.com/metastore</value>
+    <value>jdbc:postgresql://host1.sandbox.com/metastore</value>
   </property>
   <property>
     <name>javax.jdo.option.ConnectionDriverName</name>
@@ -48,7 +48,7 @@
   </property>
   <property>
     <name>hive.metastore.uris</name>
-    <value>thrift://sandbox.example.com:9083</value>
+    <value>thrift://host1.sandbox.com:9083</value>
     <description>IP address (or fully-qualified domain name) and port of the metastore host</description>
   </property>
   <property>

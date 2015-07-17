@@ -78,7 +78,7 @@ fi
 #export SCALA_HOME=${SCALA_HOME:-/usr/lib/spark/scala}
 #export PATH=$PATH:$SCALA_HOME/bin
 ### change the following to specify a real cluster's Master host
-export STANDALONE_SPARK_MASTER_HOST="sandbox.example.com"
+export STANDALONE_SPARK_MASTER_HOST="host1.sandbox.com"
 
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
