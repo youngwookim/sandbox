@@ -18,7 +18,7 @@
 
 <property>
       <name>yarn.resourcemanager.resource-tracker.address</name>
-      <value>sandbox.example.com:8025</value>
+      <value>host1.sandbox.com:8025</value>
       <description>Enter your ResourceManager hostname.</description>
    </property>
    <property>
@@ -28,7 +28,7 @@
    </property>
    <property>
       <name>yarn.resourcemanager.address</name>
-      <value>sandbox.example.com:8050</value>
+      <value>host1.sandbox.com:8050</value>
       <description>Enter your ResourceManager hostname.</description>
    </property>
    <property>
@@ -41,7 +41,7 @@
    </property>
    <property>
       <name>yarn.resourcemanager.admin.address</name>
-      <value>sandbox.example.com:8041</value>
+      <value>host1.sandbox.com:8041</value>
       <description>Enter your ResourceManager hostname.</description>
    </property>
    <property>
@@ -78,6 +78,6 @@
 <property>
   <description>The hostname of the Timeline service web application.</description>
   <name>yarn.timeline-service.hostname</name>
-  <value>0.0.0.0</value>
+  <value>host1.sandbox.com</value>
 </property>
 </configuration>

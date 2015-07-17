@@ -27,6 +27,6 @@
   </property>
   <property>
     <name>hbase.rootdir</name>
-    <value>hdfs://sandbox.example.com:8020/hbase</value>
+    <value>hdfs://host1.sandbox.com:8020/hbase</value>
   </property>
 </configuration>

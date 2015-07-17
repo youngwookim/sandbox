@@ -20,7 +20,7 @@
 <!-- single node -->
    <property>
       <name>fs.defaultFS</name>
-      <value>hdfs://sandbox.example.com:8020</value>
+      <value>hdfs://host1.sandbox.com:8020</value>
    </property>
 <!-- HUE -->
 <property>
