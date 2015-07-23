@@ -132,8 +132,6 @@ cp /vagrant/confs/hadoop/conf/HBase-hdfs-site.xml /etc/hadoop/conf/hdfs-site.xml
 
 service hbase-master start
 service hbase-regionserver start
-service hbase-thrift start
-# service hbase-thrift2 start
 
 ## HUE
 yum install -y hue*
@@ -156,6 +154,6 @@ yum install -y flume\* kafka\* phoenix\* sqoop\* sqoop2\* pig mahout\*
 
 # Presto
 yum install -y java-1.8.0-openjdk-devel presto-server presto-cli presto-jdbc
-cp /vagrant/confs/presto/hive.properties /etc/presto/etc/catalog/
+cp /vagrant/confs/presto/hive.properties /etc/presto/catalog/
 service presto-server start
 
