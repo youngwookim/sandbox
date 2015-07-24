@@ -51,11 +51,7 @@
     <value>thrift://host1.sandbox.com:9083</value>
     <description>IP address (or fully-qualified domain name) and port of the metastore host</description>
   </property>
-  <property>
-    <name>hive.hwi.war.file</name>
-    <value>/usr/lib/hive/lib/hive-hwi-.war</value>
-    <description>This is the WAR file with the jsp content for Hive Web Interface</description>
-  </property>
+
 <!-- Hive On Tez Conf -->
   <property>
     <name>hive.execution.engine</name>
