@@ -79,6 +79,9 @@ sudo -u postgres psql -c "CREATE DATABASE hive;"
 /usr/lib/hive/bin/schematool -dbType postgres -initSchemaTo 1.2.0
 /usr/lib/hive/bin/schematool -dbType postgres -info
 
+## Hive On Tez
+cp /vagrant/confs/hive/conf/HiveOnTez-hive-site.xml /etc/hive/conf/hive-site.xml
+
 service hive-metastore start
 service hive-server2 start
 
@@ -99,13 +102,9 @@ service spark-master start
 service spark-worker start
 service spark-history-server start
 
-## setting Hive On Tez
-cp /vagrant/confs/hive/conf/HiveOnTez-hive-site.xml /etc/hive/conf/hive-site.xml
-
-## installing & setting hbase 
+# HBase 
 yum install -y hbase-master
 yum install -y hbase-regionserver
-yum install -y hbase-thrift
 
 cp /vagrant/confs/hbase/conf/hbase-site.xml /etc/hbase/conf/hbase-site.xml
 cp /vagrant/confs/hadoop/conf/HBase-hdfs-site.xml /etc/hadoop/conf/hdfs-site.xml
@@ -118,21 +117,23 @@ yum install -y hue*
 
 service hue start
 
-# Test
+# Test for YARN - MapReduce
 su -s /bin/bash hdfs -c 'yarn jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 5 5'
 
+# Test for Tez
 sudo -u hdfs hdfs dfs -mkdir -p /user/hdfs/testTez/in
 sudo -u hdfs hdfs dfs -mkdir -p /user/hdfs/testTez/out
 sudo -u hdfs hdfs dfs -copyFromLocal /etc/passwd /user/hdfs/testTez/in/
 su -s /bin/bash hdfs -c 'hadoop jar  /usr/lib/tez/tez-examples-0.6.0.jar orderedwordcount /user/hdfs/testTez/in/ /user/hdfs/testTez/out/'
 
+# Test for Spark
 spark-submit --class org.apache.spark.examples.SparkPi --deploy-mode cluster --master yarn /usr/lib/spark/lib/spark-examples.jar 2
 
 # Flume, Kafka, Phoenix, Sqoop 1.4.x, Sqoop 1.99.x, Pig, Mahout
 yum install -y flume\* kafka\* phoenix\* sqoop\* sqoop2\* pig mahout\*
 
 # Presto
-yum install -y presto-server presto-cli presto-jdbc
-cp /vagrant/confs/presto/hive.properties /etc/presto/catalog/
-service presto-server start
+#yum install -y presto-server presto-cli presto-jdbc
+#cp /vagrant/confs/presto/hive.properties /etc/presto/catalog/
+#service presto-server start
 

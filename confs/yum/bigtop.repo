@@ -1,6 +1,7 @@
-[sdf]
-name=sdf
-baseurl=http://14.63.216.163/repo/bigtop/redhat/6/x86_64/
+[bigtop]
+name=Bigtop
 enabled=1
 gpgcheck=0
-
+type=NONE
+baseurl=http://bigtop.s3.amazonaws.com/releases/1.0.0/centos/6/x86_64
+gpgkey=http://archive.apache.org/dist/bigtop/KEYS
