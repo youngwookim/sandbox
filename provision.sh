@@ -1,22 +1,25 @@
-# Disable SELINUX
-sed -i -e 's@SELINUX=enforcing@SELINUX=disabled@' /etc/selinux/config
+# Disable ipv6
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+# Disable iptables
+service iptables stop
+service ip6tables stop
+chkconfig iptables off
+chkconfig ip6tables
 
 # EPEL
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 
-# Puppetlabs
-sudo rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+# Bootstrap
+yum install -y ntpd postgresql-jdbc
 
-# RepoForge(rpmforge)
-rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+# Ambari
+cd /etc/yum.repos.d/ && wget http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.1.0/ambari.repo && cd -
 
-# Git
-yum install -y --enablerepo=rpmforge-extras git
+yum install -y ambari-server ambari-agent
 
-yum -y install puppet java-1.7.0-openjdk-devel
+ambari-server setup -s
 
-#git clone https://github.com/apache/bigtop.git
-#cd bigtop
-#./gradlew toolchain
-
-#chown vagrant:vagrant -R /home/vagrant/bigtop                                                                                                          
+service ambari-server start
+service ambari-agent start
